@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using AutoMapper;
 
 namespace CommandAPI
 {
@@ -57,6 +58,8 @@ namespace CommandAPI
             //REMOVED: services.AddScoped<ICommandAPIRepo, MockCommandAPIRepo>();
             #endregion
 
+            //adds the AutoMapper registering it with the Services-Container
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             //now that have swapped out the mock repository for the 
             //sql data via DBContext need to register with the services container 
